@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ep_emailplatform>
+            <general>
+                <enabled>1</enabled>
+                <api_username></api_username>
+                <api_token></api_token>
+            </general>
+            <subscribe>
+                <listid>0</listid>
+                <mobile_subscribe>0</mobile_subscribe>
+                <mobile_prefix>0</mobile_prefix>
+                <firstname_fieldid>0</firstname_fieldid>
+                <lastname_fieldid>0</lastname_fieldid>
+                <double_optin>1</double_optin>
+            </subscribe>
+            <checkout>
+                <active>0</active>
+            </checkout>
+        </ep_emailplatform>
+    </default>
+</config>
