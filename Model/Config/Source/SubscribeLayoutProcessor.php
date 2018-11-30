@@ -1,8 +1,8 @@
 <?php
 
-namespace EP\Emailplatform\Model\Config\Source;
+namespace EMP\Emailplatform\Model\Config\Source;
 
-use EP\Emailplatform\Helper\Config as Helper;
+use EMP\Emailplatform\Helper\Config as Helper;
 
 /**
  * Class SubscribeLayoutProcessor
@@ -43,7 +43,7 @@ class SubscribeLayoutProcessor
                                                 'children' => [
                                                     'customer-email' => [
                                                         'config' => [
-                                                            'template' => 'EP_Emailplatform/form/element/email'
+                                                            'template' => 'EMP_Emailplatform/form/element/email'
                                                         ],
                                                         'children' => [
                                                             'newsletter-subscribe' => [
@@ -52,7 +52,7 @@ class SubscribeLayoutProcessor
                                                                     'checked' => false,
                                                                     'visible' => true,
                                                                     'changeable' => true,
-                                                                    'template' => 'EP_Emailplatform/form/element/newsletter-subscribe'
+                                                                    'template' => 'EMP_Emailplatform/form/element/newsletter-subscribe'
                                                                 ],
                                                                 'component' => 'Magento_Ui/js/form/form',
                                                                 'displayArea' => 'newsletter-subscribe',
@@ -69,7 +69,7 @@ class SubscribeLayoutProcessor
                                                 'children' => [
                                                     'customer-email' => [
                                                         'config' => [
-                                                            'template' => 'EP_Emailplatform/form/element/email'
+                                                            'template' => 'EMP_Emailplatform/form/element/email'
                                                         ],
                                                         'children' => [
                                                             'newsletter-subscribe' => [
@@ -78,7 +78,7 @@ class SubscribeLayoutProcessor
                                                                     'checked' => false,
                                                                     'visible' => true,
                                                                     'changeable' => true,
-                                                                    'template' => 'EP_Emailplatform/form/element/newsletter-subscribe'
+                                                                    'template' => 'EMP_Emailplatform/form/element/newsletter-subscribe'
                                                                 ],
                                                                 'component' => 'Magento_Ui/js/form/form',
                                                                 'displayArea' => 'newsletter-subscribe',

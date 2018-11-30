@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'EP_Emailplatform',
+    'EMP_Emailplatform',
     __DIR__
 );

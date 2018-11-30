@@ -1,10 +1,10 @@
 <?php
 
-namespace EP\Emailplatform\Model\Config;
+namespace EMP\Emailplatform\Model\Config;
 
-use EP\Emailplatform\Model\Emailplatform as Emailplatform;
+use EMP\Emailplatform\Model\Emailplatform as Emailplatform;
 use Magento\Store\Model\StoreManagerInterface as StoreManagerInterface;
-use EP\Emailplatform\Logger\Logger;
+use EMP\Emailplatform\Logger\Logger;
 
 class Firstname implements \Magento\Framework\Option\ArrayInterface {
 
@@ -33,7 +33,7 @@ class Firstname implements \Magento\Framework\Option\ArrayInterface {
             $result = $this->_emailplatform->GetEmailplatformFields();
                         
             if (!is_array($result) OR empty($result)) {
-                $this->_logger->info($result.' or no fields in eMailPlatform');
+                $this->_logger->info('Error: list not defined or no fields in eMailPlatform');
             } else {
                 foreach ($result as $item) {
                     if($result['type'] = 'text'){

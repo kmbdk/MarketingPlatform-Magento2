@@ -2,11 +2,11 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="ep_emailplatform" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="emp_emailplatform" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>eMailPlatform Configuration</label>
             <tab>customer</tab>
-            <resource>EP_Emailplatform::config_ep_emailplatform</resource>
+            <resource>EMP_Emailplatform::config_emp_emailplatform</resource>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>eMailPlatform connection</label>
                 <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -27,7 +27,7 @@
                 <label>Subscribe Configuration</label>
                 <field id="listid" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>List</label>
-                    <source_model>EP\Emailplatform\Model\Config\Lists</source_model>
+                    <source_model>EMP\Emailplatform\Model\Config\Lists</source_model>
                     <comment>Choose your List from eMailPlatform</comment>
                 </field>
                 <field id="mobile_subscribe" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -37,12 +37,12 @@
                 </field>
                 <field id="firstname_fieldid" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Firstname field</label>
-                    <source_model>EP\Emailplatform\Model\Config\Firstname</source_model>
+                    <source_model>EMP\Emailplatform\Model\Config\Firstname</source_model>
                     <comment>Select eMailPlatform field for firstname</comment>
                 </field>
                 <field id="lastname_fieldid" translate="label" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Lastname field</label>
-                    <source_model>EP\Emailplatform\Model\Config\Lastname</source_model>
+                    <source_model>EMP\Emailplatform\Model\Config\Lastname</source_model>
                     <comment>Select eMailPlatform field for lastname</comment>
                 </field>
                 <field id="double_optin" translate="label" type="select" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">

@@ -1,6 +1,6 @@
 <?php
 
-namespace EP\Emailplatform\Setup;
+namespace EMP\Emailplatform\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;

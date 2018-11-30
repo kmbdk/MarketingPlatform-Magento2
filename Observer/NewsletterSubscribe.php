@@ -1,12 +1,12 @@
 <?php
 
-namespace EP\Emailplatform\Observer;
+namespace EMP\Emailplatform\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
-use EP\Emailplatform\Logger\Logger;
+use EMP\Emailplatform\Logger\Logger;
 use Magento\Newsletter\Model\Subscriber;
-use EP\Emailplatform\Helper\Config as Helper;
-use EP\Emailplatform\Model\Emailplatform;
+use EMP\Emailplatform\Helper\Config as Helper;
+use EMP\Emailplatform\Model\Emailplatform;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\App\Request\DataPersistorInterface;
 

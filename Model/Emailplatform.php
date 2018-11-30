@@ -1,8 +1,8 @@
 <?php
 
-namespace EP\Emailplatform\Model;
+namespace EMP\Emailplatform\Model;
 
-use EP\Emailplatform\Helper\Config as Helper;
+use EMP\Emailplatform\Helper\Config as Helper;
 
 class Emailplatform {
 
@@ -87,6 +87,11 @@ class Emailplatform {
 
         $url = $this->URL.'/Lists/GetCustomFields';
         $listid = $this->_helper->getConfigSubscribe('listid');
+        
+        if($listid == 0){
+            return false;
+        }
+        
         $params = array(
             'listids' => $listid
         );

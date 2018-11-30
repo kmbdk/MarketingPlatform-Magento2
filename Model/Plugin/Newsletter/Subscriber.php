@@ -1,6 +1,6 @@
 <?php
 
-namespace EP\Emailplatform\Model\Plugin\Newsletter;
+namespace EMP\Emailplatform\Model\Plugin\Newsletter;
 
 use Magento\Newsletter\Model\Subscriber as MageSubscriber;
 

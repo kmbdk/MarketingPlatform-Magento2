@@ -1,7 +1,7 @@
 var config = {
     "map": {
         "*": {
-            'Magento_Checkout/js/model/shipping-save-processor/default': 'EP_Emailplatform/js/model/shipping-save-processor/default'
+            'Magento_Checkout/js/model/shipping-save-processor/default': 'EMP_Emailplatform/js/model/shipping-save-processor/default'
         }
     }
 };

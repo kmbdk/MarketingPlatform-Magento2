@@ -1,6 +1,6 @@
 <?php
 
-namespace EP\Emailplatform\Logger;
+namespace EMP\Emailplatform\Logger;
 
 class Logger extends \Monolog\Logger {
 }

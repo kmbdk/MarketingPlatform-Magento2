@@ -4,7 +4,7 @@
     <type name="Magento\Checkout\Block\Onepage">
         <arguments>
             <argument name="layoutProcessors" xsi:type="array">
-                <item name="subscribeConfig" xsi:type="object">EP\Emailplatform\Model\Config\Source\SubscribeLayoutProcessor</item>
+                <item name="subscribeConfig" xsi:type="object">EMP\Emailplatform\Model\Config\Source\SubscribeLayoutProcessor</item>
             </argument>
         </arguments>
     </type>

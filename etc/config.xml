@@ -2,7 +2,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <ep_emailplatform>
+        <emp_emailplatform>
             <general>
                 <enabled>1</enabled>
                 <api_username></api_username>
@@ -19,6 +19,6 @@
             <checkout>
                 <active>0</active>
             </checkout>
-        </ep_emailplatform>
+        </emp_emailplatform>
     </default>
 </config>

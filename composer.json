@@ -1,5 +1,5 @@
 {
-    "name": "ep/emailplatform",
+    "name": "emp/emailplatform",
     "authors": [
         {
             "name": "Emailplatform",
@@ -21,7 +21,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "EP\\Emailplatform\\": ""
+            "EMP\\Emailplatform\\": ""
         }
     }
 }

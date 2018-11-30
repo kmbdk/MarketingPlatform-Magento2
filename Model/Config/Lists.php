@@ -1,10 +1,10 @@
 <?php
 
-namespace EP\Emailplatform\Model\Config;
+namespace EMP\Emailplatform\Model\Config;
 
-use EP\Emailplatform\Model\Emailplatform as Emailplatform;
+use EMP\Emailplatform\Model\Emailplatform as Emailplatform;
 use Magento\Store\Model\StoreManagerInterface as StoreManagerInterface;
-use EP\Emailplatform\Logger\Logger;
+use EMP\Emailplatform\Logger\Logger;
 
 class Lists implements \Magento\Framework\Option\ArrayInterface {
 

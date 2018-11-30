@@ -1,11 +1,11 @@
 <?php
 
-namespace EP\Emailplatform\Model\Plugin\Checkout;
+namespace EMP\Emailplatform\Model\Plugin\Checkout;
 
 use Magento\Quote\Model\QuoteRepository;
 use Magento\Checkout\Model\ShippingInformationManagement as ShippingManagement;
 use Magento\Checkout\Api\Data\ShippingInformationInterface;
-use EP\Emailplatform\Helper\Config as Helper;
+use EMP\Emailplatform\Helper\Config as Helper;
 
 class ShippingInformationManagement {
 

@@ -2,25 +2,25 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Checkout\Model\ShippingInformationManagement">
-        <plugin name="save-newsletter-subscribe-in-quote" type="EP\Emailplatform\Model\Plugin\Checkout\ShippingInformationManagement" sortOrder="10"/>
+        <plugin name="save-newsletter-subscribe-in-quote" type="EMP\Emailplatform\Model\Plugin\Checkout\ShippingInformationManagement" sortOrder="10"/>
     </type>
     <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
-        <plugin name="save-newsletter-subscribe-in-quote" type="EP\Emailplatform\Model\Plugin\Checkout\ShippingInformationManagement" sortOrder="10"/>
+        <plugin name="save-newsletter-subscribe-in-quote" type="EMP\Emailplatform\Model\Plugin\Checkout\ShippingInformationManagement" sortOrder="10"/>
     </type>
-    <type name="EP\Emailplatform\Logger\Handler">
+    <type name="EMP\Emailplatform\Logger\Handler">
         <arguments>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
         </arguments>
     </type>
-    <type name="EP\Emailplatform\Logger\Logger">
+    <type name="EMP\Emailplatform\Logger\Logger">
         <arguments>
-            <argument name="name" xsi:type="string">ep_logger</argument>
+            <argument name="name" xsi:type="string">emp_logger</argument>
             <argument name="handlers"  xsi:type="array">
-                <item name="system" xsi:type="object">EP\Emailplatform\Logger\Handler</item>
+                <item name="system" xsi:type="object">EMP\Emailplatform\Logger\Handler</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Newsletter\Model\Subscriber">
-        <plugin name="stop-newsletter-confirmation-email" type="EP\Emailplatform\Model\Plugin\Newsletter\Subscriber" sortOrder="1" disabled="false"/>
+        <plugin name="stop-newsletter-confirmation-email" type="EMP\Emailplatform\Model\Plugin\Newsletter\Subscriber" sortOrder="1" disabled="false"/>
     </type>
 </config>
