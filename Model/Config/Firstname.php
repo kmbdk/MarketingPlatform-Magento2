@@ -36,7 +36,7 @@ class Firstname implements \Magento\Framework\Option\ArrayInterface {
                 $this->_logger->info('Error: list not defined or no fields in eMailPlatform');
             } else {
                 foreach ($result as $item) {
-                    if($result['type'] = 'text'){
+                    if($item['fieldtype'] == 'text'){
                         $this->_fields[] = array(
                             'value' => $item['fieldid'],
                             'label' => $item['fieldname']
