@@ -12,7 +12,7 @@ API Username & Token is handed by eMailPlatform support team.
 Download the extension as a ZIP file from this repository or install our module with [Composer](https://getcomposer.org/) using the following command:
 
 ```
-composer require ep/emailplatform
+composer require ep/magento2integration
 ```
 
 If you're installing the extension manually, unzip the archive and upload the files to `/app/code/EP/Emailplatform`. After uploading, run the following [Magento CLI](http://devdocs.magento.com/guides/v2.0/config-guide/cli/config-cli-subcommands.html) commands:
