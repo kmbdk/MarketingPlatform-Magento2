@@ -1,6 +1,6 @@
 # eMailPlatform-Magento2
 
-Magento 2 module for integrating with eMailPlatofrm application through API.
+Magento 2 module for integrating with eMailPlatform application through API.
 
 Subscribers will be added to eMailPlatform with emailaddress
 Possible to add checkout subscription - subscribers will be added to eMailPlatform (possibility to apply firstname, lastname & mobile for subsciption).
