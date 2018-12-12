@@ -41,7 +41,7 @@ class NewsletterSubscribe implements ObserverInterface {
             
             $request = $this->_emailplatform->subscribe($email);
             
-            if(is_int($request)){
+            if(is_int($request) && $request != 0){
                 $this->_logger->info("Subscriber $email was added to eMailPlatform - SubscriberID: $request");
             } else {
                 $this->_logger->info('Error: '.$request);

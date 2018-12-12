@@ -3,16 +3,28 @@
 namespace EMP\Emailplatform\Model;
 
 use EMP\Emailplatform\Helper\Config as Helper;
+use \Magento\Framework\HTTP\Client\Curl;
+use EMP\Emailplatform\Logger\Logger;
 
 class Emailplatform {
 
     protected $URL = 'https://api.mailmailmail.net/v1.1';
+    protected $api_username;
+    protected $api_token;
+    
     protected $_helper;
     protected $_emailplatformlists;
     protected $_emailplatformfields;
+    protected $_curl;
+    protected $_logger;
 
-    public function __construct(Helper $helper) {
+    public function __construct(Helper $helper, Curl $curl, Logger $logger) {
         $this->_helper = $helper;
+        $this->_curl = $curl;
+        $this->_logger = $logger;
+        
+        $this->api_username = trim($this->_helper->getConfigGeneral('api_username'));
+        $this->api_token = trim($this->_helper->getConfigGeneral('api_token'));
     }
 
     public function subscribe($email, $mobile = false, $firstname = '', $lastname = '') {
@@ -103,69 +115,47 @@ class Emailplatform {
         return $this->MakePostRequest($url);
     }
 
-    private function GetHTTPHeader() {
-
-        $username = $this->_helper->getConfigGeneral('api_username');
-        $token = $this->_helper->getConfigGeneral('api_token');
-
-        return array(
-            "Accept: application/json; charset=utf-8",
-            "ApiUsername: " . trim($username),
-            "ApiToken: " . trim($token)
-        );
-    }
-
     private function DecodeResult($input = '') {
         return json_decode($input, TRUE);
     }
 
     public function MakeGetRequest($url = "", $fields = array()) {
-        // open connection
-        $ch = curl_init();
-        if (!empty($fields)) {
-            $url .= "?" . http_build_query($fields, '', '&');
+        try {
+            
+            if (!empty($fields)) {
+                $url .= "?" . http_build_query($fields, '', '&');
+            }
+            
+            // Magento curl request
+            $this->_curl->addHeader('Accept', 'application/json; charset=utf-8');
+            $this->_curl->addHeader('ApiUsername', $this->api_username);
+            $this->_curl->addHeader('ApiToken', $this->api_token);
+            $this->_curl->get($url);
+            
+            return $this->DecodeResult($this->_curl->getBody());
+            
+        } catch (\Exception $e) {
+            $this->_logger->info('Error Curl',['exception' => $e]);
+            return 'Curl exception error';
         }
-        // set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->GetHTTPHeader());
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-
-        // execute post
-        $result = curl_exec($ch);
-
-        // close connection
-        curl_close($ch);
-        // return $result;
-        return $this->DecodeResult($result);
         
     }
 
     public function MakePostRequest($url = "", $fields = array()) {
-        // open connection
-        $ch = curl_init();
-
-        // add the setting to the fields
-        // $data = array_merge($fields, $this->settings);
-        $encodedData = http_build_query($fields, '', '&');
-
-        // set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->GetHTTPHeader());
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_POST, count($fields));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $encodedData);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-
-        // execute post
-        $result = curl_exec($ch);
-
-        // close connection
-        curl_close($ch);
-
-        return $this->DecodeResult($result);
+        try {
+                        
+            $this->_curl->addHeader('Accept', 'application/json; charset=utf-8');
+            $this->_curl->addHeader('ApiUsername', $this->api_username);
+            $this->_curl->addHeader('ApiToken', $this->api_token);
+            $this->_curl->post($url, $fields);
+            
+            return $this->DecodeResult($this->_curl->getBody());
+            
+            
+        } catch (\Exception $e) {
+            $this->_logger->info('Error Curl',['exception' => $e]);
+            return 'Curl exception error';
+        }
         
     }
 

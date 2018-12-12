@@ -61,7 +61,7 @@ class SubscribeOnCheckout implements ObserverInterface {
                     
                         $request = $this->_emailplatform->subscribe($email, $mobile, $firstname, $lastname);
                         
-                        if(is_int($request)){
+                        if(is_int($request) && $request != 0){
                             $this->_logger->info('Subscriber '.$email.' was succesful added to eMailPlatform - SubscriberID: '.$request);
                         } else {
                             $this->_logger->info('Error: '.$request);
