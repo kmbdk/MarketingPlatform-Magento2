@@ -129,9 +129,8 @@ class Emailplatform {
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->GetHTTPHeader());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        // disable for security
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
         // execute post
         $result = curl_exec($ch);
@@ -144,7 +143,6 @@ class Emailplatform {
     }
 
     public function MakePostRequest($url = "", $fields = array()) {
-
         // open connection
         $ch = curl_init();
 
@@ -158,9 +156,8 @@ class Emailplatform {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_POST, count($fields));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $encodedData);
-        // disable for security
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
         // execute post
         $result = curl_exec($ch);
