@@ -1,11 +1,11 @@
-# eMailPlatform-Magento2
+# MarketingPlatform-Magento2
 
-Magento 2 module for integrating with eMailPlatform application through API.
+Magento 2 module for integrating with MarketingPlatform application through API.
 
-Subscribers will be added to eMailPlatform with emailaddress
+Subscribers will be added to MarketingPlatform with emailaddress
 Possible to add checkout subscription - subscribers will be added to eMailPlatform (possibility to apply firstname, lastname & mobile for subsciption).
 
-API Username & Token is handed by eMailPlatform support team.
+API Username & Token can be created inside MarketingPlatform integrations
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ bin/magento setup:upgrade
 These commands will enable the eMailPlatform extension, perform necessary database updates, and re-compile your Magento store. From there, you'll want to run through the pre-import checklist and set everything up using our [extension guide](https://emailplatform.com).
 
 
-## Get your API User from eMailPlatform support
+## Get your account from MarketingPlatform team
 
 Email: support@emailplatform.com
 Tel: +45 72 44 44 44
