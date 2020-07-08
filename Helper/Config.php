@@ -24,21 +24,21 @@ class Config extends \Magento\Framework\App\Helper\AbstractHelper {
         $this->_scopeConfig = $scopeConfig;
     }
     
-    public function getConfigGeneral($key) {
+    public function getConfigGeneral($key, $StoreId = null) {
         return $this->_scopeConfig->getValue(
-            'emp_emailplatform/general/' . $key, \Magento\Store\Model\ScopeInterface::SCOPE_STORE 
+            'emp_emailplatform/general/' . $key, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $StoreId 
         );
     }
 
-    public function getConfigSubscribe($key) {
+    public function getConfigSubscribe($key, $StoreId = null) {
         return $this->_scopeConfig->getValue(
-            'emp_emailplatform/subscribe/' . $key, \Magento\Store\Model\ScopeInterface::SCOPE_STORE 
+            'emp_emailplatform/subscribe/' . $key, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $StoreId 
         );
     }
 
-    public function getConfigCheckout($key) {
+    public function getConfigCheckout($key, $StoreId = null) {
         return $this->_scopeConfig->getValue(
-            'emp_emailplatform/checkout/' . $key, \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+            'emp_emailplatform/checkout/' . $key, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $StoreId
         );
     }
     

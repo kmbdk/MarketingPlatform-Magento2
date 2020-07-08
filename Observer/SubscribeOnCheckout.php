@@ -57,9 +57,9 @@ class SubscribeOnCheckout implements ObserverInterface {
                     $lastname = $quote->getBillingAddress()->getLastname();
                     $mobile = $quote->getBillingAddress()->getTelephone();
                     
-                    if($this->_subscriber->subscribe($email)){
+                    if($subscriber = $this->_subscriber->subscribe($email)){
                     
-                        $request = $this->_emailplatform->subscribe($email, $mobile, $firstname, $lastname);
+                        $request = $this->_emailplatform->subscribe($email, null, $mobile, $firstname, $lastname);
                         
                         if(is_int($request) && $request != 0){
                             $this->_logger->info('Subscriber '.$email.' was succesful added to eMailPlatform - SubscriberID: '.$request);

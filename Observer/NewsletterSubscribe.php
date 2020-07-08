@@ -37,14 +37,32 @@ class NewsletterSubscribe implements ObserverInterface {
 
         if(!$this->_dataPersistor->get('newsletter_checkout_subscribe')){
             
+            $subscriber_status = $observer->getEvent()->getSubscriber()->getSubscriberStatus();
             $email = $observer->getEvent()->getSubscriber()->getSubscriberEmail();
+            $StoreId = $observer->getEvent()->getSubscriber()->getStoreId();
             
-            $request = $this->_emailplatform->subscribe($email);
+            $this->_logger->info("Status: ".STATUS_SUBSCRIBED);
             
-            if(is_int($request) && $request != 0){
-                $this->_logger->info("Subscriber $email was added to eMailPlatform - SubscriberID: $request");
+            if($subscriber_status != 3){
+                
+                $request = $this->_emailplatform->subscribe($email, $StoreId);
+            
+                if(is_int($request) && $request != 0){
+                    $this->_logger->info("Subscriber $email was added to eMailPlatform - SubscriberID: $request");
+                } else {
+                    $this->_logger->info('Error: '.$request);
+                }
+                
             } else {
-                $this->_logger->info('Error: '.$request);
+                
+                $request = $this->_emailplatform->unsubscribe($email);
+            
+                if($request){
+                    $this->_logger->info("Subscriber $email was unsubscribed from eMailPlatform");
+                } else {
+                    $this->_logger->info('Error: '.$request);
+                }
+                
             }
             
         } else {

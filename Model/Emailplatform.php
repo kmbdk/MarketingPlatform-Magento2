@@ -19,6 +19,7 @@ class Emailplatform {
     protected $_logger;
 
     public function __construct(Helper $helper, Curl $curl, Logger $logger) {
+        
         $this->_helper = $helper;
         $this->_curl = $curl;
         $this->_logger = $logger;
@@ -27,12 +28,12 @@ class Emailplatform {
         $this->api_token = trim($this->_helper->getConfigGeneral('api_token'));
     }
 
-    public function subscribe($email, $mobile = false, $firstname = '', $lastname = '') {
+    public function subscribe($email, $StoreId = null, $mobile = false, $firstname = '', $lastname = '') {
 
         $url = $this->URL . '/Subscribers/AddSubscriberToList';
 
         $double_optin = $this->_helper->getConfigSubscribe('double_optin');
-        $listid = $this->_helper->getConfigSubscribe('listid');
+        $listid = $this->_helper->getConfigSubscribe('listid', $StoreId);
         $mobile_subscribe = $this->_helper->getConfigSubscribe('mobile_subscribe');
         $firstname_fieldid = $this->_helper->getConfigSubscribe('firstname_fieldid');
         $lastname_fieldid = $this->_helper->getConfigSubscribe('lastname_fieldid');
@@ -72,6 +73,20 @@ class Emailplatform {
         );
 
         return $this->MakePostRequest($url, $params);
+    }
+    
+    public function unsubscribe($email){
+        
+        $url = $this->URL . '/Subscribers/UnsubscribeSubscriberEmail';
+        $listid = $this->_helper->getConfigSubscribe('listid');
+        
+        $params = array(
+            'listid' => $listid,
+            'emailaddress' => $email
+        );
+        
+        return $this->MakePostRequest($url, $params);
+        
     }
 
     public function GetEmailplatformLists() {
